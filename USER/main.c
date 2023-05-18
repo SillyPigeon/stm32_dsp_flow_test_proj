@@ -91,33 +91,46 @@ int main(void)
 		arm_cfft_radix4_f32(&scfft, fft_buffer);	
 		//下变频
 		tranfer_length =  FFT_LENGTH - (FFT_LENGTH / DOWN_FEQ_MAX_RATE) * DOWN_FEQ_RATE ;
+		memset(data_buffer, 0 , sizeof(data_buffer));
+		memcpy(data_buffer, fft_buffer , sizeof(fft_buffer));
 		for(i=0; i < tranfer_length ; i++)
 		{
 			u32 tranfer_index = (FFT_LENGTH / DOWN_FEQ_MAX_RATE) * DOWN_FEQ_RATE * 2;
-			fft_buffer[2*i] = fft_buffer[tranfer_index + 2*i];
-			fft_buffer[2*i + 1]= fft_buffer[tranfer_index + 2*i + 1];
+			fft_buffer[i] = data_buffer[tranfer_index + 2*i];
+			fft_buffer[FFT_LENGTH + i]= data_buffer[tranfer_index + 2*i + 1];
 		}
 		//转化为幅度谱
-		memset(data_buffer, 0 , sizeof(data_buffer));
-		arm_cmplx_mag_f32(fft_buffer, data_buffer, FFT_LENGTH);
-		memset(fft_buffer, 0 , sizeof(fft_buffer));
 		//fir滤波
 		for(i=0; i < numBlocks; i++)
 		{
-			arm_fir_f32(&scfir, data_buffer + (i * blockSize),  fft_buffer + (i * blockSize),  blockSize);
+			arm_fir_f32(&scfir, fft_buffer + (i * blockSize),  data_buffer + (i * blockSize),  blockSize);
+		}
+
+		for(i=0; i < numBlocks; i++)
+		{
+			arm_fir_f32(&scfir, fft_buffer + FFT_LENGTH + (i * blockSize),  data_buffer + FFT_LENGTH + (i * blockSize),  blockSize);
 		}
 		
 		//************** DSP处理流程结束 *******************//
 		time=TIM_GetCounter(TIM3)+(u32)timeout*65536; 			//计算所用时间
 		//************** 输出结果展示 *******************//
 		printf("\r\n%d point FFT runtime:%0.3fms\r\n", FFT_LENGTH, time/1000);
-		printf("FFT Result:\r\n");
+		printf("FFT Real Result:\r\n");
 		printf("[");
 		for(i=0;i<FFT_LENGTH;i++)
 		{
 			printf("%f ",fft_buffer[i]);
 		}
+		printf("]\r\n\r\n");
+		
+		printf("FFT Imz Result:\r\n");
+		printf("[");
+		for(i=0;i<FFT_LENGTH;i++)
+		{
+			printf("%f ",fft_buffer[FFT_LENGTH + i]);
+		}
 		printf("]\r\n");
+		
 		//系统延迟
 		delay_ms(1000);
 		LED0=!LED0;
