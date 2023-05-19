@@ -1,0 +1,27 @@
+--cpu=Cortex-M4.fp.sp
+"f4_dsp_test\startup_stm32f407xx.o"
+"f4_dsp_test\main.o"
+"f4_dsp_test\gpio.o"
+"f4_dsp_test\stm32f4xx_it.o"
+"f4_dsp_test\stm32f4xx_hal_msp.o"
+"f4_dsp_test\stm32f4xx_hal_tim.o"
+"f4_dsp_test\stm32f4xx_hal_tim_ex.o"
+"f4_dsp_test\stm32f4xx_hal_rcc.o"
+"f4_dsp_test\stm32f4xx_hal_rcc_ex.o"
+"f4_dsp_test\stm32f4xx_hal_flash.o"
+"f4_dsp_test\stm32f4xx_hal_flash_ex.o"
+"f4_dsp_test\stm32f4xx_hal_flash_ramfunc.o"
+"f4_dsp_test\stm32f4xx_hal_gpio.o"
+"f4_dsp_test\stm32f4xx_hal_dma_ex.o"
+"f4_dsp_test\stm32f4xx_hal_dma.o"
+"f4_dsp_test\stm32f4xx_hal_pwr.o"
+"f4_dsp_test\stm32f4xx_hal_pwr_ex.o"
+"f4_dsp_test\stm32f4xx_hal_cortex.o"
+"f4_dsp_test\stm32f4xx_hal.o"
+"f4_dsp_test\stm32f4xx_hal_exti.o"
+"f4_dsp_test\system_stm32f4xx.o"
+"..\Drivers\CMSIS\Lib\ARM\arm_cortexM4lf_math.lib"
+--strict --scatter "F4_dsp_test\F4_dsp_test.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "F4_dsp_test.map" -o F4_dsp_test\F4_dsp_test.axf
