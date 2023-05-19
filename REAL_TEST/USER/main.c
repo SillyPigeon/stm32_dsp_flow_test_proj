@@ -114,26 +114,26 @@ int main(void)
 		//************** DSP处理流程结束 *******************//
 		time=TIM_GetCounter(TIM3)+(u32)timeout*65536; 			//计算所用时间
 		//************** 输出结果展示 *******************//
-		printf("\r\n%d point FFT runtime:%0.3fms\r\n", FFT_LENGTH, time/1000);
-		printf("FFT Real Result:\r\n");
-		printf("[");
-		for(i=0;i<FFT_LENGTH;i++)
-		{
-			printf("%f ",fft_buffer[i]);
-		}
-		printf("]\r\n\r\n");
+		//printf("\r\n%d point FFT runtime:%0.3fms\r\n", FFT_LENGTH, time/1000);
+		//printf("FFT Real Result:\r\n");
+		//printf("[");
+		//for(i=0;i<FFT_LENGTH;i++)
+		//{
+		//	printf("%f ",fft_buffer[i]);
+		//}
+		//printf("]\r\n\r\n");
 		
-		printf("FFT Imz Result:\r\n");
-		printf("[");
-		for(i=0;i<FFT_LENGTH;i++)
-		{
-			printf("%f ",fft_buffer[FFT_LENGTH + i]);
-		}
-		printf("]\r\n");
+		//printf("FFT Imz Result:\r\n");
+		//printf("[");
+		//for(i=0;i<FFT_LENGTH;i++)
+		//{
+		//	printf("%f ",fft_buffer[FFT_LENGTH + i]);
+		//}
+		//printf("]\r\n");
 		
 		//系统延迟
-		delay_ms(1000);
-		LED0=!LED0;
+		//delay_ms(1000);
+		//LED0=!LED0;
 	}
 }
  
