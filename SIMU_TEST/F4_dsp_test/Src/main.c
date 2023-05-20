@@ -128,7 +128,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
 		uint32_t tranfer_length;
 		//************** 初始化计数流程以及生成数据序列 *******************//
 		
@@ -179,6 +178,7 @@ int main(void)
 		
 		memset(fft_buffer_out, 0 , sizeof(fft_buffer_out));;//end tips
 		//************** DSP处理流程结束*******************//
+    /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

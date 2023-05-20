@@ -1,0 +1,27 @@
+--cpu Cortex-M7.fp.dp
+"f7_dsp_test\startup_stm32f769xx.o"
+"f7_dsp_test\main.o"
+"f7_dsp_test\stm32f7xx_it.o"
+"f7_dsp_test\stm32f7xx_hal_msp.o"
+"f7_dsp_test\stm32f7xx_hal_cortex.o"
+"f7_dsp_test\stm32f7xx_hal_tim.o"
+"f7_dsp_test\stm32f7xx_hal_tim_ex.o"
+"f7_dsp_test\stm32f7xx_hal_rcc.o"
+"f7_dsp_test\stm32f7xx_hal_rcc_ex.o"
+"f7_dsp_test\stm32f7xx_hal_flash.o"
+"f7_dsp_test\stm32f7xx_hal_flash_ex.o"
+"f7_dsp_test\stm32f7xx_hal_gpio.o"
+"f7_dsp_test\stm32f7xx_hal_dma.o"
+"f7_dsp_test\stm32f7xx_hal_dma_ex.o"
+"f7_dsp_test\stm32f7xx_hal_pwr.o"
+"f7_dsp_test\stm32f7xx_hal_pwr_ex.o"
+"f7_dsp_test\stm32f7xx_hal.o"
+"f7_dsp_test\stm32f7xx_hal_i2c.o"
+"f7_dsp_test\stm32f7xx_hal_i2c_ex.o"
+"f7_dsp_test\stm32f7xx_hal_exti.o"
+"f7_dsp_test\system_stm32f7xx.o"
+"..\Drivers\DSPLIB\arm_cortexM7lfdp_math.lib"
+--strict --scatter "F7_dsp_test\F7_dsp_test.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "F7_dsp_test.map" -o F7_dsp_test\F7_dsp_test.axf
