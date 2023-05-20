@@ -850,7 +850,7 @@ ARM Macro Assembler    Page 14
 
 
 2f407xx.o -ID:\Keil_v5\ARM\RV31\INC -ID:\Keil_v5\ARM\CMSIS\Include --predefine=
-"__UVISION_VERSION SETA 537" --list=startup_stm32f407xx.lst startup_stm32f407xx
+"__UVISION_VERSION SETA 532" --list=startup_stm32f407xx.lst startup_stm32f407xx
 .s
 
 

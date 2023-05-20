@@ -748,12 +748,12 @@ Image Symbol Table
     i.SystemInit                             0x0800134c   Section        0  system_stm32f4xx.o(i.SystemInit)
     i.UsageFault_Handler                     0x0800135c   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
     i.main                                   0x08001360   Section        0  main.o(i.main)
-    x$fpl$fpinit                             0x080015a8   Section       10  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x080015a8   Number         0  fpinit.o(x$fpl$fpinit)
-    .constdata                               0x080015b4   Section       48  main.o(.constdata)
-    .constdata                               0x080015e4   Section     2048  arm_common_tables.o(.constdata)
-    .constdata                               0x08001de4   Section    32768  arm_common_tables.o(.constdata)
-    .constdata                               0x08009de4   Section     2052  arm_common_tables.o(.constdata)
+    x$fpl$fpinit                             0x0800159c   Section       10  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x0800159c   Number         0  fpinit.o(x$fpl$fpinit)
+    .constdata                               0x080015a8   Section       48  main.o(.constdata)
+    .constdata                               0x080015d8   Section     2048  arm_common_tables.o(.constdata)
+    .constdata                               0x08001dd8   Section    32768  arm_common_tables.o(.constdata)
+    .constdata                               0x08009dd8   Section     2052  arm_common_tables.o(.constdata)
     .data                                    0x20000000   Section       12  stm32f4xx_hal.o(.data)
     .bss                                     0x2000000c   Section       96  libspace.o(.bss)
     HEAP                                     0x20000070   Section      512  startup_stm32f407xx.o(HEAP)
@@ -974,16 +974,16 @@ Image Symbol Table
     SysTick_Handler                          0x08001347   Thumb Code     4  stm32f4xx_it.o(i.SysTick_Handler)
     SystemInit                               0x0800134d   Thumb Code    12  system_stm32f4xx.o(i.SystemInit)
     UsageFault_Handler                       0x0800135d   Thumb Code     2  stm32f4xx_it.o(i.UsageFault_Handler)
-    main                                     0x08001361   Thumb Code   542  main.o(i.main)
-    _fp_init                                 0x080015a9   Thumb Code    10  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x080015b1   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x080015b1   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    firCoeffs32LP                            0x080015b4   Data          48  main.o(.constdata)
-    armBitRevTable                           0x080015e4   Data        2048  arm_common_tables.o(.constdata)
-    twiddleCoef_4096                         0x08001de4   Data       32768  arm_common_tables.o(.constdata)
-    sinTable_f32                             0x08009de4   Data        2052  arm_common_tables.o(.constdata)
-    Region$$Table$$Base                      0x0800a5e8   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0800a608   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x08001361   Thumb Code   536  main.o(i.main)
+    _fp_init                                 0x0800159d   Thumb Code    10  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x080015a5   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x080015a5   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    firCoeffs32LP                            0x080015a8   Data          48  main.o(.constdata)
+    armBitRevTable                           0x080015d8   Data        2048  arm_common_tables.o(.constdata)
+    twiddleCoef_4096                         0x08001dd8   Data       32768  arm_common_tables.o(.constdata)
+    sinTable_f32                             0x08009dd8   Data        2052  arm_common_tables.o(.constdata)
+    Region$$Table$$Base                      0x0800a5dc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800a5fc   Number         0  anon$$obj.o(Region$$Table)
     uwTickFreq                               0x20000000   Data           1  stm32f4xx_hal.o(.data)
     uwTickPrio                               0x20000004   Data           4  stm32f4xx_hal.o(.data)
     uwTick                                   0x20000008   Data           4  stm32f4xx_hal.o(.data)
@@ -998,9 +998,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000a614, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000a608, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0000a608, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0000a5fc, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1086,28 +1086,28 @@ Memory Map of the image
     0x0800134c   0x0800134c   0x00000010   Code   RO         1445    i.SystemInit        system_stm32f4xx.o
     0x0800135c   0x0800135c   0x00000002   Code   RO          185    i.UsageFault_Handler  stm32f4xx_it.o
     0x0800135e   0x0800135e   0x00000002   PAD
-    0x08001360   0x08001360   0x00000248   Code   RO           15    i.main              main.o
-    0x080015a8   0x080015a8   0x0000000a   Code   RO         1874    x$fpl$fpinit        g_wm.l(fpinit.o)
-    0x080015b2   0x080015b2   0x00000002   PAD
-    0x080015b4   0x080015b4   0x00000030   Data   RO           16    .constdata          main.o
-    0x080015e4   0x080015e4   0x00000800   Data   RO         1676    .constdata          arm_cortexM4lf_math.lib(arm_common_tables.o)
-    0x08001de4   0x08001de4   0x00008000   Data   RO         1685    .constdata          arm_cortexM4lf_math.lib(arm_common_tables.o)
-    0x08009de4   0x08009de4   0x00000804   Data   RO         1732    .constdata          arm_cortexM4lf_math.lib(arm_common_tables.o)
-    0x0800a5e8   0x0800a5e8   0x00000020   Data   RO         1932    Region$$Table       anon$$obj.o
+    0x08001360   0x08001360   0x0000023c   Code   RO           15    i.main              main.o
+    0x0800159c   0x0800159c   0x0000000a   Code   RO         1874    x$fpl$fpinit        g_wm.l(fpinit.o)
+    0x080015a6   0x080015a6   0x00000002   PAD
+    0x080015a8   0x080015a8   0x00000030   Data   RO           16    .constdata          main.o
+    0x080015d8   0x080015d8   0x00000800   Data   RO         1676    .constdata          arm_cortexM4lf_math.lib(arm_common_tables.o)
+    0x08001dd8   0x08001dd8   0x00008000   Data   RO         1685    .constdata          arm_cortexM4lf_math.lib(arm_common_tables.o)
+    0x08009dd8   0x08009dd8   0x00000804   Data   RO         1732    .constdata          arm_cortexM4lf_math.lib(arm_common_tables.o)
+    0x0800a5dc   0x0800a5dc   0x00000020   Data   RO         1932    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800a608, Size: 0x00000670, Max: 0x0001c000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800a5fc, Size: 0x00000670, Max: 0x0001c000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x0800a608   0x0000000c   Data   RW         1213    .data               stm32f4xx_hal.o
+    0x20000000   0x0800a5fc   0x0000000c   Data   RW         1213    .data               stm32f4xx_hal.o
     0x2000000c        -       0x00000060   Zero   RW         1804    .bss                c_w.l(libspace.o)
-    0x2000006c   0x0800a614   0x00000004   PAD
+    0x2000006c   0x0800a608   0x00000004   PAD
     0x20000070        -       0x00000200   Zero   RW            2    HEAP                startup_stm32f407xx.o
     0x20000270        -       0x00000400   Zero   RW            1    STACK               startup_stm32f407xx.o
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x2001c000, Load base: 0x0800a614, Size: 0x00000000, Max: 0x00004000, ABSOLUTE)
+    Execution Region RW_IRAM2 (Exec base: 0x2001c000, Load base: 0x0800a608, Size: 0x00000000, Max: 0x00004000, ABSOLUTE)
 
     **** No section assigned to this execution region ****
 
@@ -1119,14 +1119,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       584         42         48          0          0      20015   main.o
-        64         26        392          0       1536        880   startup_stm32f407xx.o
-        16          4          0         12          0       7097   stm32f4xx_hal.o
-        20          0          0          0          0       4406   stm32f4xx_it.o
-        16          4          0          0          0        497   system_stm32f4xx.o
+       572         36         48          0          0      20083   main.o
+        64         26        392          0       1536        900   startup_stm32f407xx.o
+        16          4          0         12          0       7177   stm32f4xx_hal.o
+        20          0          0          0          0       4586   stm32f4xx_it.o
+        16          4          0          0          0        517   system_stm32f4xx.o
 
     ----------------------------------------------------------------------
-       706         76        472         12       1536      32895   Object Totals
+       694         70        472         12       1536      33263   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          6          0          0          0          0          0   (incl. Padding)
 
@@ -1188,15 +1188,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5164        174      37340         12       1636      69025   Grand Totals
-      5164        174      37340         12       1636      69025   ELF Image Totals
-      5164        174      37340         12          0          0   ROM Totals
+      5152        168      37340         12       1636      69393   Grand Totals
+      5152        168      37340         12       1636      69393   ELF Image Totals
+      5152        168      37340         12          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                42504 (  41.51kB)
+    Total RO  Size (Code + RO Data)                42492 (  41.50kB)
     Total RW  Size (RW Data + ZI Data)              1648 (   1.61kB)
-    Total ROM Size (Code + RO Data + RW Data)      42516 (  41.52kB)
+    Total ROM Size (Code + RO Data + RW Data)      42504 (  41.51kB)
 
 ==============================================================================
 
