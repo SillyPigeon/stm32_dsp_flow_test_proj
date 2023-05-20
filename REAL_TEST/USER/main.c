@@ -17,8 +17,8 @@
 #define DOWN_FEQ_RATE	    5 		    //下变频，频移倍率，频谱整体往低频平移 DOWN_FEQ_RATE/DOWN_FEQ_RATE_MAX
 #define DOWN_FEQ_MAX_RATE	10 		    //最大频移倍率
 
-#define TEST_LENGTH_SAMPLES  1024    /* 采样点数 */
-#define BLOCK_SIZE           1         /* 调用一次arm_fir_f32处理的采样点个数 */
+#define TEST_LENGTH_SAMPLES  4096    /* 采样点数 */
+#define BLOCK_SIZE           256    /* 调用一次arm_fir_f32处理的采样点个数 */
 #define NUM_TAPS             12      /* 滤波器系数个数 */
 
 uint32_t blockSize = BLOCK_SIZE;
@@ -77,8 +77,7 @@ int main(void)
 							  10*arm_sin_f32(2*PI*i*4/FFT_LENGTH)+
 				              50*arm_cos_f32(2*PI*i*8/FFT_LENGTH);	//生成输入信号虚部
 		}
-		TIM_SetCounter(TIM3,0);//重设TIM3定时器的计数器值
-		timeout=0;
+		
 
 		//************** DSP处理流程开始 *******************//
 		//信号抽样
@@ -89,6 +88,7 @@ int main(void)
 		}
 		//FFT计算（基4）
 		arm_cfft_radix4_f32(&scfft, fft_buffer);	
+		
 		//下变频
 		tranfer_length =  FFT_LENGTH - (FFT_LENGTH / DOWN_FEQ_MAX_RATE) * DOWN_FEQ_RATE ;
 		memset(data_buffer, 0 , sizeof(data_buffer));
@@ -101,39 +101,41 @@ int main(void)
 		}
 		//转化为幅度谱
 		//fir滤波
+		TIM_SetCounter(TIM3,0);//重设TIM3定时器的计数器值
+		timeout=0;
 		for(i=0; i < numBlocks; i++)
 		{
 			arm_fir_f32(&scfir, fft_buffer + (i * blockSize),  data_buffer + (i * blockSize),  blockSize);
 		}
-
+		time=TIM_GetCounter(TIM3)+(u32)timeout*65536; 			//计算所用时间
 		for(i=0; i < numBlocks; i++)
 		{
 			arm_fir_f32(&scfir, fft_buffer + FFT_LENGTH + (i * blockSize),  data_buffer + FFT_LENGTH + (i * blockSize),  blockSize);
 		}
 		
 		//************** DSP处理流程结束 *******************//
-		time=TIM_GetCounter(TIM3)+(u32)timeout*65536; 			//计算所用时间
+		//time=TIM_GetCounter(TIM3)+(u32)timeout*65536; 			//计算所用时间
 		//************** 输出结果展示 *******************//
-		//printf("\r\n%d point FFT runtime:%0.3fms\r\n", FFT_LENGTH, time/1000);
-		//printf("FFT Real Result:\r\n");
-		//printf("[");
-		//for(i=0;i<FFT_LENGTH;i++)
-		//{
-		//	printf("%f ",fft_buffer[i]);
-		//}
-		//printf("]\r\n\r\n");
+		printf("\r\n%d point FFT runtime:%0.3fms\r\n", FFT_LENGTH, time/1000);
+		/*printf("FFT Real Result:\r\n");
+		printf("[");
+		for(i=0;i<FFT_LENGTH;i++)
+		{
+			printf("%f ",fft_buffer[i]);
+		}
+		printf("]\r\n\r\n");
 		
-		//printf("FFT Imz Result:\r\n");
-		//printf("[");
-		//for(i=0;i<FFT_LENGTH;i++)
-		//{
-		//	printf("%f ",fft_buffer[FFT_LENGTH + i]);
-		//}
-		//printf("]\r\n");
+		printf("FFT Imz Result:\r\n");
+		printf("[");
+		for(i=0;i<FFT_LENGTH;i++)
+		{
+			printf("%f ",fft_buffer[FFT_LENGTH + i]);
+		}
+		printf("]\r\n");*/
 		
 		//系统延迟
-		//delay_ms(1000);
-		//LED0=!LED0;
+		delay_ms(1000);
+		LED0=!LED0;
 	}
 }
  

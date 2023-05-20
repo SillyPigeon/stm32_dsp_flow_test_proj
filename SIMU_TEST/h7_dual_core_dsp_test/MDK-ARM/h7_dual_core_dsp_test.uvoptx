@@ -357,7 +357,7 @@
           <Type>0</Type>
           <LineNumber>175</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134223664</Address>
+          <Address>134223666</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -373,7 +373,7 @@
           <Type>0</Type>
           <LineNumber>204</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134223874</Address>
+          <Address>134223880</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -382,7 +382,55 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>../CM7/Core/Src/main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\h7_dual_core_dsp_test_CM7\../CM7/Core/Src/main.c\204</Expression>
+          <Expression>\\\../CM7/Core/Src/main.c\204</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>182</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134223720</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>../CM7/Core/Src/main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\h7_dual_core_dsp_test_CM7\../CM7/Core/Src/main.c\182</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>184</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134223732</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>../CM7/Core/Src/main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\h7_dual_core_dsp_test_CM7\../CM7/Core/Src/main.c\184</Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
+          <Type>0</Type>
+          <LineNumber>199</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134223838</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>../CM7/Core/Src/main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\h7_dual_core_dsp_test_CM7\../CM7/Core/Src/main.c\199</Expression>
         </Bp>
       </Breakpoint>
       <Tracepoint>

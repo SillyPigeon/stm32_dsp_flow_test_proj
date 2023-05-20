@@ -43,7 +43,7 @@
 #define DOWN_FEQ_RATE	    5 		    //下变频，频移倍率，频谱整体往低频平移 DOWN_FEQ_RATE/DOWN_FEQ_RATE_MAX
 #define DOWN_FEQ_MAX_RATE	10 		    //最大频移倍率
 #define TEST_LENGTH_SAMPLES  4096    /* 采样点数 */
-#define BLOCK_SIZE           1         /* 调用一次arm_fir_f32处理的采样点个数 */
+#define BLOCK_SIZE           256         /* 调用一次arm_fir_f32处理的采样点个数 */
 #define NUM_TAPS             12      /* 滤波器系数个数 */
 /* USER CODE END PD */
 
@@ -152,6 +152,7 @@ int main(void)
 			fft_buffer_in[2*i] = data_buffer[1024*4 + 4*i];
 			fft_buffer_in[2*i + 1]= data_buffer[1024*4 + 4*i + 1];
 		}
+		tranfer_length = 1;
 	  
 		//FFT计算（基4）
 		arm_cfft_radix4_f32(&scfft, fft_buffer_in);	
